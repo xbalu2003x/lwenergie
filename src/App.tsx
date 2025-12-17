@@ -21,7 +21,6 @@ import {
 
 // --- HAUPTKOMPONENTE ---
 function App() {
-  // Hier speichern wir, welche Seite gerade angezeigt wird ('home', 'impressum', 'datenschutz')
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -204,9 +203,13 @@ function Header({
             className="flex items-center gap-3 cursor-pointer" 
             onClick={() => setCurrentPage('home')}
           >
-            <div className="w-10 h-10 bg-[#96B522] rounded-lg flex items-center justify-center">
-              <Zap className="w-6 h-6 text-white" />
-            </div>
+            {/* LOGO BILD - Holt sich das Bild direkt aus dem public Ordner */}
+            <img 
+              src="/final_heller_higru_bildmarke.png" 
+              alt="Lars Winter Logo" 
+              className="h-12 w-auto object-contain rounded-lg" 
+            />
+            
             <div>
               <div className="text-xl font-bold text-[#666D5A]">Lars Winter</div>
               <div className="text-sm text-gray-500">Energieberatung</div>
@@ -461,8 +464,17 @@ function Footer({ scrollToSection, openLegal }: { scrollToSection: (id: string) 
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-[#96B522] rounded-lg flex items-center justify-center"><Zap className="w-6 h-6 text-white" /></div>
-              <div><div className="text-xl font-bold">Lars Winter</div><div className="text-sm text-gray-300">Energieberatung</div></div>
+              {/* FOOTER LOGO - Auch hier direkt aus public */}
+              <img 
+                src="/final_heller_higru_bildmarke.png" 
+                alt="Lars Winter Logo" 
+                className="h-10 w-auto object-contain rounded-lg" 
+              />
+              
+              <div>
+                <div className="text-xl font-bold">Lars Winter</div>
+                <div className="text-sm text-gray-300">Energieberatung</div>
+              </div>
             </div>
             <p className="text-gray-300 mb-4">Ihr zertifizierter Partner für energieeffiziente Gebäudesanierung und Fördermittelberatung.</p>
             <div className="space-y-2 text-sm">
